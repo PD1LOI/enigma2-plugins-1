@@ -1,3 +1,4 @@
+
 #######################################################################
 #
 #    EasyMedia for Dreambox-Enigma2
@@ -115,7 +116,7 @@ def notEasy(session, **kwargs):
 
 def MPanelEntryComponent(key, text, cell):
 	res = [ text ]
-	res.append((eListboxPythonMultiContent.TYPE_TEXT, 150, 17, 300, 60, 0, RT_HALIGN_LEFT, text[0]))
+	res.append((eListboxPythonMultiContent.TYPE_TEXT, 150, 17,450, 60, 0, RT_HALIGN_LEFT, text[0]))
 	if cell<5:
 		bpng = LoadPixmap('/usr/lib/enigma2/python/Plugins/Extensions/EasyMedia/key-' + str(cell) + ".png")
 		if bpng is not None:
@@ -134,8 +135,8 @@ def MPanelEntryComponent(key, text, cell):
 class MPanelList(MenuList):
 	def __init__(self, list, selection = 0, enableWrapAround=True):
 		MenuList.__init__(self, list, enableWrapAround, eListboxPythonMultiContent)
-		self.l.setFont(0, gFont("Regular", 20))
-		self.l.setItemHeight(60)
+		self.l.setFont(0, gFont("Regular", 32))
+		self.l.setItemHeight(70)
 		self.selection = selection
 	def postWidgetCreate(self, instance):
 		MenuList.postWidgetCreate(self, instance)
@@ -575,6 +576,8 @@ def MPcallbackFunc(answer):
 			inpf.close()	
 			runPlug(session = EMsession)
 		except: EMsession.open(MessageBox, text = (plugToRun + " not found!"), type = MessageBox.TYPE_WARNING)
+
+
 
 
 
